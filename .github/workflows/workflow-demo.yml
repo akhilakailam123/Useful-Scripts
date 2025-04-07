@@ -1,0 +1,18 @@
+name: Github Actions example
+on: [push]
+jobs:
+  Explore-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Event trigger info
+        run: echo "This job will automatically triggered by ${{ github.event_name }} event"
+      - name: Runner info
+        run: echo "This job is now running on a ${{ runner.os }} machine!"
+      - name: branch and repo info
+        run: echo "The name of your branch is ${{ github.ref }} and your repository is $ {{ github.repository}}."
+      - name: :Checkout repository
+        uses: actions/checkout@v2
+      - name: Repository clone confirmation
+        run: echo "The ${{ github.repository }} repository has been cloned to the runner."
+      - name: Workflow ready message
+        run: echo "Your workflow is now ready to test your code on the runner."
