@@ -16,3 +16,8 @@ jobs:
         run: echo "The ${{ github.repository }} repository has been cloned to the runner."
       - name: Workflow ready message
         run: echo "Your workflow is now ready to test your code on the runner."
+      - name: store and retrieve secrets in workflow file
+        env:
+          SECRET_VALUE: ${{ secrets.SECRET_VALUE }}
+        run: |
+          example_command "echo $SECRET_VALUE"
