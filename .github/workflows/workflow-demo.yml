@@ -19,5 +19,4 @@ jobs:
       - name: store and retrieve secrets in workflow file
         env:
           SECRET_VALUE: ${{ secrets.SECRET_VALUE }}
-        run: |
-          example_command "echo $SECRET_VALUE"
+        run: echo "Secret value is ${{SECRET_VALUE}}"
