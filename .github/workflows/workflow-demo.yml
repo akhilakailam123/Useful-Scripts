@@ -18,5 +18,5 @@ jobs:
         run: echo "Your workflow is now ready to test your code on the runner."
       - name: store and retrieve secrets in workflow file
         env:
-          SECRET_VALUE: ${{ secrets.SECRET_VALUE }}
-        run: echo "Secret value is ${{SECRET_VALUE}}"
+          MY_SECRET: ${{ secrets.SECRET_VALUE }}
+        run: echo "Secret value is $MY_SECRET" # this will expose the secret
