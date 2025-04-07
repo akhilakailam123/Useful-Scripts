@@ -9,7 +9,7 @@ jobs:
       - name: Runner info
         run: echo "This job is now running on a ${{ runner.os }} machine!"
       - name: branch and repo info
-        run: echo "The name of your branch is ${{ github.ref }} and your repository is $ {{ github.repository}}."
+        run: echo "The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository}}."
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Repository clone confirmation
