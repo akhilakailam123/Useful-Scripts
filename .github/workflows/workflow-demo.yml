@@ -1,5 +1,11 @@
 name: Github Actions example
+
 on: [push]
+
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   Explore-github-actions:
     runs-on: ubuntu-latest
