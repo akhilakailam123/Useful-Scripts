@@ -26,4 +26,4 @@ df2.printSchema()
 df2.show()
 
 '''Run file with spark-submit if issues occures
-spark-submit --packages com.databricks:spark-xml_2.12:0.13.0 get-xml-data.py'''
+spark-submit --packages com.databricks:spark-xml_2.12:0.13.0 extract-xml-data.py'''
