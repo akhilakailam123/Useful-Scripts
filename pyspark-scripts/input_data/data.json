@@ -1,0 +1,28 @@
+{
+  "user": {
+    "id": 123,
+    "name": {
+      "first": "John",
+      "last": "Doe"
+    },
+    "contact": {
+      "email": "john.doe@example.com",
+      "phones": [
+        {
+          "type": "home",
+          "number": "123-456-7890"
+        },
+        {
+          "type": "work",
+          "number": "987-654-3210"
+        }
+      ]
+    },
+    "roles": ["admin", "editor"],
+    "active": true
+  },
+  "meta": {
+    "created_at": "2024-01-01T10:00:00Z",
+    "updated_at": "2025-01-01T12:00:00Z"
+  }
+}
