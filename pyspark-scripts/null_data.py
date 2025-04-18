@@ -1,5 +1,5 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, coalesce, lit, avg
+from pyspark.sql.functions import col, coalesce, lit, avg, count, when
 
 spark = SparkSession.builder.master('local').appName('Null-data-handling').getOrCreate()
 
@@ -46,3 +46,10 @@ df2.na.drop(how= "any").show()
 
 ## Drops rows where all the Columns are NULL
 df2.na.drop(how="all").show()
+
+## Compute the number of NULLs across all columns
+
+df.withColumn('test',lit(0)).show()
+df2.select(
+    [count(when(col(c).isNull(), c)).alias(c) for c in df2.columns]
+).show()
