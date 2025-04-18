@@ -26,7 +26,10 @@ schema = StructType([
         StructField("updated_at", StringType(), True)
     ]))
 ])
-dataframe = spark.read.format('json').option('multiline', True).load('input_data/data.json')
+dataframe = (spark.read.format('json')
+             .option('multiline', True)
+             .load('input_data/data.json'))
+dataframe.printSchema()
 dataframe.show(truncate=False)
 
 ## flattening the structure:
@@ -100,3 +103,20 @@ data = {
 
 flat_data = flatten_data(data)
 print(flat_data)
+
+
+##------------------------------------------------------
+## Flatten top level text fields from json
+
+df2 = spark.read.format('json').option('multiline', True).load('input_data/example.json')
+flatten_df = df2.select(
+    col('Image.Width').alias('Image_Width'),
+    col('Image.Height').alias('Image_Height'),
+    col('Image.Title').alias('Title'),
+    col('Image.Thumbnail.Url').alias('Thumnail_url'),
+    col('Image.Thumbnail.Height').alias('Thumbnail_height'),
+    col('Image.Thumbnail.Width').alias('Thumbnail_width'),
+    col('Image.IDs').alias('Image_IDs')
+)
+flatten_df.printSchema()
+flatten_df.show()
