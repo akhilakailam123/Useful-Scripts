@@ -1,0 +1,2 @@
+This is a sample text file
+for reading this file and creating a rdd using spark.sparkContext.textFile()
